@@ -55,7 +55,7 @@ class WeatherCrawler:
                 'humidity': humidity,
                 'wind': wind
             }
-            return None
+            return res
         else:
             return None
 
