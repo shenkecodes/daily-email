@@ -1,0 +1,38 @@
+name: 'GitHub Actions Love Email Bot'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    - cron: '0 14,23 * * *'
+
+jobs:
+  emailbot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      # - name: 'Install dependencies'
+      #   run: python -m pip install --upgrade pip
+      - name: 'Install requirements'
+        run: pip install -r requirements.txt
+      - name: 'Working'
+        run: bash ./main.sh
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        continue-on-error: true
+        with:
+          server_address: smtp.163.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: To My Love
+          body: file://email.html
+          to: ${{ secrets.RECEIVER }}
+          from: GitHub Actions
+          content_type: text/html
