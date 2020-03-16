@@ -10,7 +10,4 @@ install:
   - pip3 install -r requirements.txt
   
 script:
-  - bash main.sh
-
-after_success:
-  - coveralls
+  - python main.py
