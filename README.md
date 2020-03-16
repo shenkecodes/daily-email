@@ -8,6 +8,11 @@
     <img src="https://api.travis-ci.com/sculpta/daily-email.svg?branch=master">
 </p>
 
+## Usage
+
+- 首先点击右上角 🌟Star ʕ •ᴥ•ʔ
+- Fork 本仓库后，将用于发邮件的 SMTP 邮箱和密码，以及收件人邮箱添加到仓库的 Secrets 中
+
 ## License
 
-[Apache License 2.0](LICENSE)
+[MIT](LICENSE)

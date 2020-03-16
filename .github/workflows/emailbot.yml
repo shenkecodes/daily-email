@@ -20,7 +20,7 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r requirements.txt
       - name: 'Working'
-        run: bash ./main.sh
+        run: python main.py
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         continue-on-error: true
